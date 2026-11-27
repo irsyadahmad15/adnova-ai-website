@@ -1,138 +1,40 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AdNova AI - Intelligent advertising and marketing solutions for businesses worldwide.">
-  <title>AdNova AI | Intelligent Advertising</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #080d1b;
-      color: #f5f7ff;
-      line-height: 1.6;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 8%;
-      border-bottom: 1px solid #202a40;
-    }
-    .logo { font-size: 25px; font-weight: bold; color: #65aaff; }
-    nav a {
-      color: #d5def0;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 14px;
-    }
-    .hero {
-      text-align: center;
-      padding: 110px 20px 90px;
-      background: radial-gradient(ellipse at top, #19386a, #080d1b 65%);
-    }
-    .tag {
-      color: #72b6ff;
-      letter-spacing: 3px;
-      font-size: 12px;
-    }
-    h1 { font-size: clamp(38px, 7vw, 68px); margin: 22px 0; line-height: 1.1; }
-    h1 span { color: #68aaff; }
-    .hero p { max-width: 650px; margin: 0 auto 30px; color: #b5c2d8; }
-    .btn {
-      display: inline-block;
-      padding: 14px 25px;
-      border-radius: 8px;
-      background: #277be8;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section { padding: 75px 8%; }
-    .section-title { text-align: center; margin-bottom: 38px; }
-    .section-title h2 { font-size: 34px; margin-bottom: 10px; }
-    .section-title p { color: #a8b5cb; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-    .card {
-      padding: 25px;
-      background: #111b30;
-      border: 1px solid #263651;
-      border-radius: 12px;
-    }
-    .card h3 { color: #80baff; margin-bottom: 12px; }
-    .card p { color: #b5c2d8; font-size: 14px; }
-    .about { background: #0d1425; text-align: center; }
-    .about p { max-width: 750px; margin: auto; color: #b5c2d8; }
-    .contact { text-align: center; }
-    footer {
-      padding: 25px;
-      text-align: center;
-      color: #8190aa;
-      border-top: 1px solid #202a40;
-      font-size: 13px;
-    }
-    @media(max-width:600px) {
-      header { padding: 18px 5%; }
-      nav a { margin-left: 8px; font-size: 12px; }
-      section { padding: 60px 6%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#081225">
+<meta name="description" content="AdNova AI helps businesses plan smarter advertising with research, creative strategy, campaign support and clear performance reporting.">
+<meta property="og:title" content="AdNova AI — Advertising, intelligently.">
+<meta property="og:description" content="AI-assisted advertising strategy and creative services for ambitious businesses.">
+<title>AdNova AI — Advertising, intelligently.</title>
+<style>
+:root{--bg:#081225;--panel:#101e35;--panel2:#142642;--text:#f4f7ff;--muted:#aab9d0;--blue:#69aaff;--cyan:#67e3e2;--line:#263a59;--max:1120px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif}a{color:inherit}.wrap{width:min(var(--max),90%);margin:auto}.topbar{position:sticky;top:0;z-index:10;background:#081225ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:1.35rem;font-weight:850;letter-spacing:-.6px;text-decoration:none}.brand b{color:var(--blue)}.links{display:flex;align-items:center;gap:25px}.links a,.lang{font-size:.92rem;color:var(--muted);text-decoration:none}.links a:hover,.lang:hover{color:white}.navright{display:flex;align-items:center;gap:16px}.lang{border:1px solid var(--line);background:transparent;border-radius:8px;padding:7px 10px;cursor:pointer}.menu{display:none;background:none;border:0;color:white;font-size:1.5rem}.hero{padding:100px 0 88px;background:radial-gradient(ellipse at 75% 0%,#174477 0,transparent 45%),radial-gradient(ellipse at 15% 25%,#132a4d 0,transparent 40%)}.eyebrow{color:var(--cyan);font-weight:750;font-size:.76rem;letter-spacing:2.2px;text-transform:uppercase}.hero h1{font-size:clamp(2.7rem,7vw,5.5rem);line-height:1.04;letter-spacing:-3px;max-width:850px;margin:20px 0}.gradient{background:linear-gradient(90deg,var(--blue),var(--cyan));background-clip:text;color:transparent}.lead{max-width:690px;color:var(--muted);font-size:1.13rem}.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 21px;border-radius:9px;text-decoration:none;font-weight:750;border:1px solid transparent}.primary{background:linear-gradient(100deg,#397fe8,#2cb9c8);color:white}.secondary{border-color:#49617f;color:#e5edfa}.note{font-size:.83rem;color:#8294ae;margin-top:18px}.section{padding:78px 0}.soft{background:#0c192d}.heading{text-align:center;max-width:720px;margin:0 auto 38px}.heading h2{font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-1px;line-height:1.15;margin:9px 0}.heading p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{padding:24px;background:linear-gradient(145deg,#132541,#0e1a30);border:1px solid var(--line);border-radius:15px}.ico{width:40px;height:40px;display:grid;place-items:center;border-radius:11px;background:#1c3d61;color:var(--cyan);font-weight:900;font-size:1.1rem}.card h3{margin:15px 0 7px;font-size:1.08rem}.card p{margin:0;color:var(--muted);font-size:.94rem}.industries{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}.chip{padding:9px 14px;border:1px solid var(--line);border-radius:99px;background:#10203a;color:#dce8f8;font-size:.9rem}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.step{border-top:2px solid #397fba;padding:18px 4px}.step strong{color:var(--cyan);font-size:.8rem;letter-spacing:1px}.step h3{margin:8px 0}.step p{color:var(--muted);font-size:.92rem;margin:0}.aboutbox{display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}.aboutbox h2{font-size:2.2rem;line-height:1.2}.aboutbox p{color:var(--muted)}.principle{padding:24px;border:1px solid var(--line);background:var(--panel);border-radius:15px}.principle li{margin:9px 0;color:#d5e1f2}.cta{padding:50px 25px;text-align:center;border:1px solid #31547b;border-radius:20px;background:radial-gradient(ellipse at top,#183d65,#101d34 70%)}.cta h2{font-size:2.2rem;margin:0 0 10px}.cta p{color:var(--muted);margin:0 auto 22px;max-width:600px}.contactline{color:var(--muted);font-size:.92rem;margin-top:17px}.contactline a{color:var(--cyan)}footer{border-top:1px solid var(--line);padding:25px 0;color:#8394ad;font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.disclaimer{max-width:780px;margin-top:12px;font-size:.78rem;color:#71839e}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}.aboutbox{grid-template-columns:1fr}.hero{padding:75px 0}.hero h1{letter-spacing:-1.5px}}
+@media(max-width:600px){.nav{min-height:66px}.menu{display:block}.links{display:none;position:absolute;top:65px;left:0;right:0;padding:18px 5%;background:#0b1830;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:15px}.links.open{display:flex}.navright{gap:10px}.grid,.steps{grid-template-columns:1fr}.section{padding:60px 0}.hero{padding:68px 0}.hero h1{font-size:2.8rem}.cta h2{font-size:1.8rem}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">AdNova AI.</div>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="hero">
-      <div class="tag">AI-POWERED GLOBAL ADVERTISING</div>
-      <h1>Make Your Brand<br><span>Grow Smarter.</span></h1>
-      <p>We combine artificial intelligence, creative strategy and marketing intelligence to help businesses grow worldwide.</p>
-      <a class="btn" href="#contact">Work With Us</a>
-    </div>
-
-    <section id="services">
-      <div class="section-title">
-        <h2>Our Services</h2>
-        <p>Intelligent solutions for modern businesses.</p>
-      </div>
-      <div class="grid">
-        <div class="card"><h3>Social Media Ads</h3><p>Advertising strategies for Facebook, Instagram and TikTok.</p></div>
-        <div class="card"><h3>Google Ads</h3><p>Reach potential customers through targeted search campaigns.</p></div>
-        <div class="card"><h3>AI Creative Studio</h3><p>Creative concepts, advertising copy and visual content.</p></div>
-        <div class="card"><h3>Marketing Analytics</h3><p>Understand campaign performance through data analysis.</p></div>
-        <div class="card"><h3>Marketing Automation</h3><p>Improve marketing workflows with intelligent automation.</p></div>
-        <div class="card"><h3>Growth Strategy</h3><p>Build measurable marketing plans for business growth.</p></div>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="section-title"><h2>About AdNova AI</h2></div>
-      <p>AdNova AI is an AI-powered advertising agency serving businesses across industries. Our mission is to make modern advertising more intelligent, efficient and accessible through technology and human expertise.</p>
-    </section>
-
-    <section id="contact" class="contact">
-      <div class="section-title">
-        <h2>Let's Grow Together</h2>
-        <p>Ready to improve your marketing performance?</p>
-      </div>
-      <a class="btn" href="mailto:adnovaai.business@gmail.com">Contact Our Team</a>
-    </section>
-  </main>
-
-  <footer>
-    © 2026 AdNova AI. All rights reserved.
-  </footer>
+<header class="topbar"><div class="wrap nav"><a class="brand" href="#">AdNova <b>AI.</b></a><nav class="links" id="navlinks"><a href="#services" data-en="Services" data-id="Layanan">Services</a><a href="#industries" data-en="Industries" data-id="Industri">Industries</a><a href="#process" data-en="How it works" data-id="Cara kerja">How it works</a><a href="#about" data-en="About" data-id="Tentang">About</a><a href="#contact" data-en="Contact" data-id="Kontak">Contact</a></nav><div class="navright"><button class="lang" id="lang" type="button" aria-label="Change language">ID</button><button class="menu" id="menu" type="button" aria-label="Open menu">☰</button></div></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow" data-en="AI-assisted advertising partner" data-id="Partner periklanan berbantuan AI">AI-assisted advertising partner</div><h1 data-en="Make your marketing<br><span class='gradient'>work smarter.</span>" data-id="Buat pemasaran Anda<br><span class='gradient'>lebih cerdas.</span>">Make your marketing<br><span class="gradient">work smarter.</span></h1><p class="lead" data-en="AdNova AI helps ambitious businesses turn market insight into clearer advertising strategies, compelling creative and measurable campaigns." data-id="AdNova AI membantu bisnis mengubah wawasan pasar menjadi strategi iklan yang jelas, materi kreatif yang menarik, dan kampanye yang terukur.">AdNova AI helps ambitious businesses turn market insight into clearer advertising strategies, compelling creative and measurable campaigns.</p><div class="actions"><a class="btn primary" href="#contact" data-en="Discuss your project →" data-id="Diskusikan proyek Anda →">Discuss your project →</a><a class="btn secondary" href="#services" data-en="Explore services" data-id="Lihat layanan">Explore services</a></div><p class="note" data-en="Human-led decisions. AI-powered research and workflows." data-id="Keputusan penting tetap di tangan manusia. Riset dan alur kerja didukung AI.">Human-led decisions. AI-powered research and workflows.</p></div></section>
+<section class="section" id="services"><div class="wrap"><div class="heading"><div class="eyebrow" data-en="What we do" data-id="Layanan kami">What we do</div><h2 data-en="A smarter system for better advertising" data-id="Sistem lebih cerdas untuk iklan yang lebih baik">A smarter system for better advertising</h2><p data-en="Practical marketing support, from the first insight to performance review." data-id="Dukungan pemasaran praktis, dari riset awal hingga evaluasi performa.">Practical marketing support, from the first insight to performance review.</p></div><div class="grid">
+<article class="card"><div class="ico">⌕</div><h3 data-en="Market & audience research" data-id="Riset pasar & audiens">Market & audience research</h3><p data-en="Understand customer needs, market positioning, competitors and emerging opportunities." data-id="Pahami kebutuhan pelanggan, posisi pasar, kompetitor, dan peluang baru.">Understand customer needs, market positioning, competitors and emerging opportunities.</p></article>
+<article class="card"><div class="ico">✦</div><h3 data-en="Campaign strategy" data-id="Strategi kampanye">Campaign strategy</h3><p data-en="Set campaign objectives, audience segments, messaging and channel priorities." data-id="Tentukan tujuan kampanye, segmen audiens, pesan, dan prioritas kanal.">Set campaign objectives, audience segments, messaging and channel priorities.</p></article>
+<article class="card"><div class="ico">✎</div><h3 data-en="Creative & ad copy" data-id="Kreatif & naskah iklan">Creative & ad copy</h3><p data-en="Develop concepts, headlines, copy and creative briefs for your brand." data-id="Kembangkan konsep, judul, naskah, dan arahan materi kreatif untuk merek Anda.">Develop concepts, headlines, copy and creative briefs for your brand.</p></article>
+<article class="card"><div class="ico">◎</div><h3 data-en="Paid media support" data-id="Dukungan iklan berbayar">Paid media support</h3><p data-en="Plan and support campaigns across search and social advertising platforms." data-id="Rencanakan dan dukung kampanye di platform iklan pencarian dan media sosial.">Plan and support campaigns across search and social advertising platforms.</p></article>
+<article class="card"><div class="ico">↗</div><h3 data-en="Analytics & reporting" data-id="Analitik & laporan">Analytics & reporting</h3><p data-en="Turn available campaign data into understandable reports and optimization ideas." data-id="Ubah data kampanye yang tersedia menjadi laporan yang mudah dipahami dan ide optimasi.">Turn available campaign data into understandable reports and optimization ideas.</p></article>
+<article class="card"><div class="ico">⚙</div><h3 data-en="Marketing workflows" data-id="Alur kerja pemasaran">Marketing workflows</h3><p data-en="Identify repetitive tasks and design practical automation with approval checkpoints." data-id="Identifikasi tugas berulang dan rancang otomatisasi praktis dengan titik persetujuan.">Identify repetitive tasks and design practical automation with approval checkpoints.</p></article>
+</div></div></section>
+<section class="section soft" id="industries"><div class="wrap"><div class="heading"><div class="eyebrow" data-en="Who we help" data-id="Siapa yang kami bantu">Who we help</div><h2 data-en="Built for businesses across industries" data-id="Untuk bisnis dari berbagai industri">Built for businesses across industries</h2><p data-en="We adapt the approach to your audience, offer, market and stage of growth." data-id="Kami menyesuaikan pendekatan dengan audiens, produk, pasar, dan tahap pertumbuhan bisnis Anda.">We adapt the approach to your audience, offer, market and stage of growth.</p></div><div class="industries"><span class="chip">E-commerce & retail</span><span class="chip">Hospitality & travel</span><span class="chip">Food & beverage</span><span class="chip">Beauty & lifestyle</span><span class="chip">Education</span><span class="chip">Professional services</span><span class="chip">Technology & SaaS</span><span class="chip">Local businesses</span></div></div></section>
+<section class="section" id="process"><div class="wrap"><div class="heading"><div class="eyebrow" data-en="Our workflow" data-id="Alur kerja">Our workflow</div><h2 data-en="Clear steps. Shared decisions." data-id="Langkah jelas. Keputusan bersama.">Clear steps. Shared decisions.</h2><p data-en="A collaborative process designed to keep goals, responsibilities and approvals visible." data-id="Proses kolaboratif agar tujuan, tanggung jawab, dan persetujuan selalu jelas.">A collaborative process designed to keep goals, responsibilities and approvals visible.</p></div><div class="steps"><div class="step"><strong>01 / DISCOVER</strong><h3 data-en="Understand" data-id="Memahami">Understand</h3><p data-en="We learn about your business, audience, offer and objectives." data-id="Kami mempelajari bisnis, audiens, penawaran, dan tujuan Anda.">We learn about your business, audience, offer and objectives.</p></div><div class="step"><strong>02 / PLAN</strong><h3 data-en="Build the strategy" data-id="Menyusun strategi">Build the strategy</h3><p data-en="We prepare recommendations, messaging and a practical action plan." data-id="Kami menyiapkan rekomendasi, pesan, dan rencana tindakan.">We prepare recommendations, messaging and a practical action plan.</p></div><div class="step"><strong>03 / CREATE</strong><h3 data-en="Prepare & approve" data-id="Menyiapkan & menyetujui">Prepare & approve</h3><p data-en="Creative and campaign materials are reviewed with you before launch." data-id="Materi kreatif dan kampanye ditinjau bersama Anda sebelum tayang.">Creative and campaign materials are reviewed with you before launch.</p></div><div class="step"><strong>04 / IMPROVE</strong><h3 data-en="Measure & learn" data-id="Mengukur & belajar">Measure & learn</h3><p data-en="We review available results and recommend the next improvements." data-id="Kami meninjau hasil yang tersedia dan merekomendasikan perbaikan berikutnya.">We review available results and recommend the next improvements.</p></div></div></div></section>
+<section class="section soft" id="about"><div class="wrap aboutbox"><div><div class="eyebrow" data-en="About AdNova AI" data-id="Tentang AdNova AI">About AdNova AI</div><h2 data-en="Technology moves fast. Good judgment still matters." data-id="Teknologi bergerak cepat. Penilaian yang baik tetap penting.">Technology moves fast. Good judgment still matters.</h2><p data-en="AdNova AI is building an accessible, AI-assisted advertising service for businesses in Indonesia and around the world. We combine structured research and efficient workflows with human review, transparent communication and practical recommendations." data-id="AdNova AI sedang membangun layanan periklanan berbantuan AI yang mudah diakses untuk bisnis di Indonesia dan seluruh dunia. Kami menggabungkan riset terstruktur dan alur kerja efisien dengan tinjauan manusia, komunikasi transparan, dan rekomendasi praktis.">AdNova AI is building an accessible, AI-assisted advertising service for businesses in Indonesia and around the world. We combine structured research and efficient workflows with human review, transparent communication and practical recommendations.</p></div><aside class="principle"><h3 data-en="Our operating principles" data-id="Prinsip kerja kami">Our operating principles</h3><ul><li data-en="No fabricated case studies or performance claims." data-id="Tidak membuat studi kasus atau klaim performa palsu.">No fabricated case studies or performance claims.</li><li data-en="Client approval before campaign launches or budget changes." data-id="Persetujuan klien sebelum kampanye tayang atau anggaran berubah.">Client approval before campaign launches or budget changes.</li><li data-en="Clear scope, reporting and next steps." data-id="Ruang lingkup, laporan, dan langkah berikutnya yang jelas.">Clear scope, reporting and next steps.</li><li data-en="Advertising spend remains separate from service fees." data-id="Biaya iklan terpisah dari biaya layanan.">Advertising spend remains separate from service fees.</li></ul></aside></div></section>
+<section class="section" id="contact"><div class="wrap"><div class="cta"><div class="eyebrow" data-en="Start a conversation" data-id="Mulai percakapan">Start a conversation</div><h2 data-en="What would you like to grow?" data-id="Apa yang ingin Anda kembangkan?">What would you like to grow?</h2><p data-en="Tell us about your business and marketing goals. We’ll discuss whether AdNova AI can help and what a sensible first step looks like." data-id="Ceritakan bisnis dan tujuan pemasaran Anda. Kami akan membahas apakah AdNova AI dapat membantu dan seperti apa langkah awal yang masuk akal.">Tell us about your business and marketing goals. We’ll discuss whether AdNova AI can help and what a sensible first step looks like.</p><a class="btn primary" href="mailto:adnovaai.business@gmail.com?subject=AdNova%20AI%20Project%20Enquiry" data-en="Email AdNova AI →" data-id="Email AdNova AI →">Email AdNova AI →</a><div class="contactline">adnovaai.business@gmail.com</div></div></div></section>
+</main>
+<footer><div class="wrap"><div class="foot"><span>© <span id="year"></span> AdNova AI. All rights reserved.</span><span data-en="Built with AI. Guided by people." data-id="Dibangun dengan AI. Diarahkan oleh manusia.">Built with AI. Guided by people.</span></div><p class="disclaimer" data-en="AdNova AI is an emerging service. Services, availability and deliverables are agreed individually. No specific advertising results are guaranteed. This website’s email link opens your email application; it does not submit or store a web form." data-id="AdNova AI adalah layanan yang sedang berkembang. Layanan, ketersediaan, dan hasil kerja disepakati secara individual. Tidak ada hasil iklan tertentu yang dijamin. Tautan email di situs ini membuka aplikasi email Anda; situs ini belum mengirim atau menyimpan formulir web.">AdNova AI is an emerging service. Services, availability and deliverables are agreed individually. No specific advertising results are guaranteed. This website’s email link opens your email application; it does not submit or store a web form.</p></div></footer>
+<script>
+const langButton=document.getElementById('lang');let language='en';langButton.addEventListener('click',()=>{language=language==='en'?'id':'en';document.documentElement.lang=language;document.querySelectorAll('[data-en]').forEach(el=>{el.innerHTML=el.dataset[language]});langButton.textContent=language==='en'?'ID':'EN'});document.getElementById('menu').addEventListener('click',()=>document.getElementById('navlinks').classList.toggle('open'));document.querySelectorAll('#navlinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navlinks').classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();
+</script>
 </body>
 </html>
