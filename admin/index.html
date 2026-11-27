@@ -40,4 +40,4 @@ const statusCell=td('');const select=document.createElement('select');select.cla
 async function updateStatus(lead,select){select.disabled=true;const previous=lead.status;const {error}=await db.from('leads').update({status:select.value}).eq('id',lead.id);select.disabled=false;if(error){select.value=previous;message('appMsg','Status update failed: '+error.message);return}lead.status=select.value;render();message('appMsg','Lead status updated.')}
 el('search').addEventListener('input',render);el('filter').addEventListener('change',render);el('refresh').addEventListener('click',load);db.auth.onAuthStateChange(()=>{checkSession()});checkSession();
 })();
-</script></body></html>
+</script><script>document.addEventListener("DOMContentLoaded",()=>{const a=document.createElement("a");a.href="../analytics/";a.textContent="▤ Performance Analytics";a.style.cssText="color:#5de1e6;text-decoration:none;font-weight:700;margin-left:14px";document.querySelector(".top")?.append(a)})</script></body></html>
