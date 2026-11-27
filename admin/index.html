@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AdNova AI — Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+:root{color-scheme:dark;--bg:#07111f;--panel:#101e32;--line:#263b58;--muted:#9aacc4;--cyan:#5de1e6;--white:#f4f7fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font:15px/1.5 Inter,system-ui,sans-serif}button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:9px;padding:11px 16px;background:var(--cyan);color:#06151d;font-weight:700}button:disabled{opacity:.5;cursor:wait}.wrap{max-width:1180px;margin:auto;padding:28px 18px}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:26px}.brand{font-size:21px;font-weight:800}.brand span{color:var(--cyan)}.muted,.hint{color:var(--muted)}.panel,.stat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}.login{max-width:420px;margin:9vh auto}.login h1{margin-top:0}.field{display:block;margin:14px 0}.field input,.tools input,.tools select,.status{width:100%;background:#091629;color:white;border:1px solid var(--line);border-radius:8px;padding:12px;margin-top:6px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.stat small{color:var(--muted)}.stat strong{display:block;font-size:28px;margin-top:6px}.tools{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.tools input{flex:1;min-width:190px}.tools select{width:auto;min-width:145px}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:850px}.table th,.table td{text-align:left;padding:13px 10px;border-bottom:1px solid var(--line);vertical-align:top}.table th{color:var(--muted);font-size:12px;text-transform:uppercase}.table td p{white-space:pre-wrap;max-width:280px;margin:5px 0}.status{width:auto;min-width:130px;padding:8px}.msg{color:var(--cyan);min-height:24px}.hidden{display:none!important}.pill{font-size:12px;color:var(--cyan)}a{color:var(--cyan)}@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start}.wrap{padding:20px 12px}}
+</style>
+</head>
+<body><main class="wrap">
+<section id="login" class="panel login"><div class="brand">AdNova <span>AI</span></div><p class="muted">Secure admin access</p><h1>Welcome back</h1><form id="loginForm"><label class="field">Email<input id="email" type="email" autocomplete="username" required></label><label class="field">Password<input id="password" type="password" autocomplete="current-password" required></label><button id="loginBtn" type="submit">Sign in</button></form><p id="loginMsg" class="msg" role="status"></p><p class="hint">Admin accounts are provisioned in Supabase. Public sign-up is disabled here.</p></section>
+<section id="app" class="hidden"><header class="top"><div><div class="brand">AdNova <span>AI</span> / Admin</div><div class="muted">Lead management workspace</div></div><button id="logout">Sign out</button></header>
+<div class="stats"><div class="stat"><small>Total leads</small><strong id="total">—</strong></div><div class="stat"><small>New</small><strong id="newCount">—</strong></div><div class="stat"><small>Contacted</small><strong id="contacted">—</strong></div><div class="stat"><small>Qualified</small><strong id="qualified">—</strong></div></div>
+<div class="panel"><div class="top"><div><h2 style="margin:0">Prospects</h2><div class="muted">Read enquiries and update their pipeline status.</div></div><button id="refresh">Refresh</button></div><div class="tools"><input id="search" placeholder="Search name, email, company…"><select id="filter"><option value="">All statuses</option><option value="new">New</option><option value="contacted">Contacted</option><option value="qualified">Qualified</option><option value="closed">Closed</option><option value="spam">Spam</option></select></div><p id="appMsg" class="msg" role="status"></p><div class="tablewrap"><table class="table"><thead><tr><th>Lead</th><th>Business</th><th>Request</th><th>Message</th><th>Received</th><th>Status</th></tr></thead><tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div></div></section>
+</main>
+<script src="../config.js"></script><script>
+(function(){
+const cfg=window.ADNOVA_SUPABASE||{}, el=id=>document.getElementById(id);
+if(!cfg.url||!cfg.anonKey||!window.supabase){el('loginMsg').textContent='Supabase configuration could not be loaded.';return}
+const db=window.supabase.createClient(cfg.url,cfg.anonKey);
+let leads=[];
+function message(id,text){el(id).textContent=text||''}
+function showApp(on){el('login').classList.toggle('hidden',on);el('app').classList.toggle('hidden',!on)}
+async function checkSession(){const {data:{session}}=await db.auth.getSession();if(!session){showApp(false);return}if(session.user.app_metadata?.role!=='admin'){await db.auth.signOut();showApp(false);message('loginMsg','This account is not authorized as an AdNova admin.');return}showApp(true);await load()}
+el('loginForm').addEventListener('submit',async e=>{e.preventDefault();const b=el('loginBtn');b.disabled=true;message('loginMsg','Signing in…');const {error}=await db.auth.signInWithPassword({email:el('email').value.trim(),password:el('password').value});b.disabled=false;if(error){message('loginMsg',error.message);return}message('loginMsg','');await checkSession()});
+el('logout').addEventListener('click',async()=>{await db.auth.signOut();showApp(false)});
+async function load(){message('appMsg','Loading leads…');const {data,error}=await db.from('leads').select('*').order('created_at',{ascending:false}).limit(500);if(error){message('appMsg','Could not load leads: '+error.message);return}leads=data||[];render();message('appMsg',leads.length+' lead(s) loaded.')}
+function render(){el('total').textContent=leads.length;el('newCount').textContent=leads.filter(x=>x.status==='new').length;el('contacted').textContent=leads.filter(x=>x.status==='contacted').length;el('qualified').textContent=leads.filter(x=>x.status==='qualified').length;
+const q=el('search').value.toLowerCase(),f=el('filter').value;const rows=leads.filter(x=>(!f||x.status===f)&&[x.name,x.email,x.company].some(v=>(v||'').toLowerCase().includes(q)));
+el('rows').replaceChildren();if(!rows.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=6;td.textContent='No matching leads.';tr.append(td);el('rows').append(tr);return}
+for(const lead of rows){const tr=document.createElement('tr');const td=(value)=>{const c=document.createElement('td');c.textContent=value||'—';tr.append(c);return c};
+const who=td(lead.name);const email=document.createElement('div');email.className='muted';email.textContent=lead.email||'';who.append(email);
+td([lead.company,lead.website].filter(Boolean).join(' · '));td([lead.industry,lead.service,lead.budget].filter(Boolean).join(' / '));
+const msg=td('');const p=document.createElement('p');p.textContent=lead.message||'—';msg.append(p);
+td(lead.created_at?new Date(lead.created_at).toLocaleString():'—');
+const statusCell=td('');const select=document.createElement('select');select.className='status';for(const [v,label] of [['new','New'],['contacted','Contacted'],['qualified','Qualified'],['closed','Closed'],['spam','Spam']]){const o=document.createElement('option');o.value=v;o.textContent=label;select.append(o)}select.value=lead.status;select.addEventListener('change',()=>updateStatus(lead,select));statusCell.append(select);el('rows').append(tr)}
+}
+async function updateStatus(lead,select){select.disabled=true;const previous=lead.status;const {error}=await db.from('leads').update({status:select.value}).eq('id',lead.id);select.disabled=false;if(error){select.value=previous;message('appMsg','Status update failed: '+error.message);return}lead.status=select.value;render();message('appMsg','Lead status updated.')}
+el('search').addEventListener('input',render);el('filter').addEventListener('change',render);el('refresh').addEventListener('click',load);db.auth.onAuthStateChange(()=>{checkSession()});checkSession();
+})();
+</script></body></html>
