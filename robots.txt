@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://irsyadahmad15.github.io/adnova-ai-website/sitemap.xml
